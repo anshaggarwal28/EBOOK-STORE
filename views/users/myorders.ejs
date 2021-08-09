@@ -1,0 +1,80 @@
+<% include ../partials/header%>
+<main class="page cart-page">
+    <section class="cart-form dark">
+        <div class="my-orders">
+
+            <div class="container">
+                <div class="card">
+                    <div class="card-header">
+                        <h1>
+                            My Orders
+                            <span>
+                                <a href="/" class="btn btn-warning shopping-button">
+                                    <i class="fa fa-chevron-right" aria-hidden="true">
+                                        <i class="fa fa-chevron-right" aria-hidden="true"> Continue Shopping
+                                        </i>
+                                    </i>
+                                </a>
+                            </span>
+                        </h1>
+                    </div>
+                </div>
+
+                <%orders.forEach(function(order){%>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-text">
+                            <div class="shopping-cart">
+                                <div class="column-labels">
+                                    <label class="product-image">Image</label>
+                                    <label class="product-details">Product</label>
+                                    <label class="product-price">Price</label>
+                                    <label class="product-quantity">Quantity</label>
+                                    <label class="product-line-price">Total</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="list-group">
+                        <%order.items.forEach(function(item){%>
+                        <div class="card-body">
+                            <div class="card-text">
+                                <li class="list-group-item ">
+                                    <div class="product">
+                                        <div class="product-image">
+                                            <img src="<%=item.item.image%>">
+                                        </div>
+                                        <div class="product-details">
+                                            <div class="product-title"><%=item.item.title%></div>
+                                        </div>
+                                        <div class="product-price">Rs. <%=item.item.price%></div>
+                                        <div class="product-quantity">
+                                            <%=item.qty%>
+                                        </div>
+                                        <div class="product-line-price">Rs. <%=item.price%></div>
+                                    </div>
+                                </li>
+                            </div>
+                        </div>
+                        <%})%>
+                    </ul>
+                    <div class="card-footer">
+                        <div class="totals">
+                            <div class="totals-item totals-item-total">
+                                <strong>
+                                    <h4 class="display-5">
+                                        <label>Grand Total: </label>
+                                        <div class="totals-value" id="cart-total">Rs. <%=order.cart.totalPrice%></div>
+                                    </h4>
+                                </strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <%})%>
+            </div>
+        </div>
+    </section>
+</main>
+
+<% include ../partials/footer%>

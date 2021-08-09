@@ -1,0 +1,133 @@
+<%include ../partials/header%>
+
+<div class="userprofile">
+    <div class="container">
+        <h1><%=user.firstname+" "+user.lastname%></h1>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="thumbnail">
+                    <div class="imgcontainer">
+                        <img class="avatar" src="<%=user.image%>" alt="Avatar">
+                        <%if(currentUser){%>
+                        <form action="/users/<%=user._id%>/dp" method="POST" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="image"></label>
+                                <input type="file" id="image" name="image" accept="image/*" required>
+                            </div>
+                            <div class="form-group button-container">
+                                <button class="button upload">Upload</button>
+                            </div>
+                        </form>
+                        <%}%>
+                    </div>
+                    <div class="caption">Mailto : <a href="mailto:<%=user.email%>"> <%=user.email%></a></div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="user-details">
+                    <form action="/users/<%=user._id%>/edit" method="POST">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="fname">First Name: </label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" id="fname" name="fname" value="<%=user.firstname%>" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="lname">Last Name: </label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" id="lname" name="lname" value="<%=user.lastname%>" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="username">Username: </label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" id="username" name="username" value="<%=user.username%>"
+                                        required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="name">Gender: </label>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="user-gender">
+                                        <h6><%=user.gender%></h6>
+                                        <div class="gender">
+                                            <% if (user.gender === "Male") {%>
+                                            <label class="radio-inline male" for="radio">
+                                                <input type="radio" value="Male" id="radio" name="gender"
+                                                    checked>Male</label>
+                                            <% } else{ %>
+                                            <label class="radio-inline male" for="radio">
+                                                <input type="radio" value="Male" id="radio" name="gender">Male</label>
+                                            <% }  %>
+
+                                            <% if (user.gender === "Female") {%>
+                                            <label class="radio-inline female" for="radio">
+                                                <input type="radio" value="Female" id="radio" name="gender"
+                                                    checked>Female</label>
+                                            <% } else{ %>
+                                            <label class="radio-inline female" for="radio">
+                                                <input type="radio" value="Female" id="radio"
+                                                    name="gender">Female</label>
+                                            <% }  %>
+
+                                            <% if (user.gender === "Others") {%>
+                                            <label class="radio-inline none" for="radio">
+                                                <input type="radio" class="none" id="radio" value="Others" name="gender"
+                                                    checked>Prefer not to say</label>
+                                            <% } else{ %>
+                                            <label class="radio-inline none" for="radio">
+                                                <input type="radio" value="Others" id="radio"
+                                                    name="gender">Others</label>
+                                            <% }  %>
+                                        </div>
+                                        <!-- <div class="row">
+                                            <div class="col-md-3">
+                                                <input type="radio" id="gender" name="gender" value="Male"> Male
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="radio" id="gender" name="gender" value="Female"> Female
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="radio" id="gender" name="gender" value="Others"> Others
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="username">E-mail: </label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" id="email" name="email" value="<%=user.email%>" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group button-container">
+                            <button class="button save">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%include ../partials/footer%>

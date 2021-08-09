@@ -1,0 +1,101 @@
+.checked{
+    color: yellow;
+}
+
+.container .jumbotron{
+    margin-top: 20px;
+    background: #FF416C !important;
+    background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C) !important;
+    background: linear-gradient(to right, #FF4B2B, #FF416C) !important;
+    color: white;
+    text-align: center;
+}
+
+.container .jumbotron .container p{
+    font-size: 130%;
+}
+
+/*  ========================================
+    Preloader
+    ======================================== */
+#loading{
+    position:fixed;
+    width: 100%;
+    height: 100vh;
+    background:rgb(24, 3, 3) url('https://media.giphy.com/media/7E8lI6TkLrvvAcPXso/giphy.gif') no-repeat center;
+    z-index: 99999; 
+}
+
+/*  ======================================
+    NAVBAR
+    ====================================== */
+/* 
+.navbar button{
+    background-color: #FF4B2B;
+    border-color:#FF4B2B;
+} */
+
+/* .navbar .form-inline{
+    margin-right:20px;
+} */
+
+/*  ============================
+    FLASH MESSAGES 
+    ============================*/
+
+.alert{
+    z-index: 1;
+    position: absolute;
+}
+
+.errorMsg, .successMsg{
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    left: 0;
+    margin-top: 10px;
+    animation: fade 15s;
+    animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes fade{
+    0%{
+      opacity: 1;
+    }
+    100%{
+      opacity: 0;
+    }
+}
+
+@keyframes fade{
+    0%{
+      opacity: 1;
+    }
+    100%{
+      opacity: 0;
+    }
+}
+
+/*  =====================================
+    Scroll Top-up
+    ===================================== */
+
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 70px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+#myBtn:hover {
+    background-color: rgb(218, 39, 39);
+}
